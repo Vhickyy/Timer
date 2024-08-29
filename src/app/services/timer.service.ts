@@ -9,6 +9,8 @@ export class TimerService {
   private countdownTime: number = 10; // Initial countdown time in seconds
   private timerSubject: BehaviorSubject<number | string> = new BehaviorSubject<number | string>(this.countdownTime);
   private timerSubscription: Subscription | null = null;
+  isBlankPage: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  // blankPageSubscription: Subscription | null = null;
 
   timer$: Observable<number | string> = this.timerSubject.asObservable();
 
@@ -29,6 +31,10 @@ export class TimerService {
         },
         complete: () => this.timerSubject.next('00'),
       });
+  }
+
+  changeIsBlankPage(val: boolean){
+    this.isBlankPage.next(val)
   }
 
   private stopCountdown(): void {

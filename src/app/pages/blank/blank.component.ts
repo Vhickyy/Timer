@@ -18,7 +18,10 @@ export class BlankComponent {
 
   ngOnInit(): void {
     this.timer$.subscribe(time => {
-      if(time == '00') this.router.navigate(['/']);
+      if(time == '00') {
+        this.timerService.changeIsBlankPage(true);
+        this.router.navigate(['/'])
+      };
     })
   }
 }

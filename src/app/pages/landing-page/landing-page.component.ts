@@ -14,10 +14,13 @@ export class LandingPageComponent {
   timerService = inject(TimerService);
   router = inject(Router);
   timer$ = this.timerService.timer$;
+  isBlankPage = this.timerService.isBlankPage;
 
   ngOnInit(): void {
     this.timer$.subscribe(time => {
-      if(time == '00') this.router.navigate(['/another-page']);
+      this.isBlankPage.subscribe(val => {
+        if(time == '00' && !val) this.router.navigate(['/another-page']);
+      })
     })
-  }
+    }
 }
