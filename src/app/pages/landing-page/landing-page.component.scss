@@ -1,0 +1,95 @@
+section{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    gap: 4rem;
+
+
+    .text > p{
+        margin-top: 1rem;
+        line-height: 2rem;
+        word-spacing: .1rem;
+    }
+
+    .get-app{
+        display: flex;
+        gap: 1rem;
+        margin-top: 3rem;
+        button{
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: start;
+            gap: 1.5rem;
+            border: 1px solid gray;
+            padding-inline: 1rem;
+            border-radius: .5rem;
+        }
+
+        .tiny-text{
+            font-size: .3rem;
+            margin-bottom: .3rem;
+        }
+
+        p{
+            font-size: .9rem;
+            font-weight: 500;
+        }
+    }
+
+    .hasBtns{
+        display: grid;
+        gap: 1rem;
+        font-size: 1.3rem;
+        font-weight: 700;
+    }
+
+    .price{
+        color: green;
+        margin-top: 1rem;
+    }
+
+    .btn-container{
+        display: grid;
+        gap: 1rem;
+    }
+    
+    button{
+        padding-block: .7rem;
+        border: transparent;
+        border-radius: .2rem;
+        background-color: white;
+        color: black;
+        cursor: pointer;
+    }
+
+    .sell {
+        background: linear-gradient(to right, rgba(144, 61, 221, 0.6), rgba(132, 36, 222, 0.314));
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: 1rem;
+    }
+
+    .link{
+        color: rgba(132, 36, 222, 0.314);
+        cursor: pointer;
+    }
+}
+
+
+@media screen and (min-width:700px) {
+    section{
+        flex-direction: row;
+
+        .text{
+            width: 60%;
+        }
+
+        .hasBtns{
+            width: 30%;
+        }
+    }
+}

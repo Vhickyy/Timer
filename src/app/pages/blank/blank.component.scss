@@ -1,0 +1,16 @@
+section{
+    display: grid;
+    gap: 2rem;
+
+    button{
+        padding-block: .7rem;
+        border: transparent;
+        border-radius: .2rem;
+        background-color: white;
+        color: black;
+        cursor: pointer;
+        background: linear-gradient(to right, rgba(144, 61, 221, 0.6), rgba(132, 36, 222, 0.314));
+        color: white;
+    }
+
+}
