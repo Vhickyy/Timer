@@ -53,6 +53,11 @@ section{
     .btn-container{
         display: grid;
         gap: 1rem;
+
+        p{
+            font-size: 1rem;
+            font-weight: normal;
+        }
     }
     
     button{
