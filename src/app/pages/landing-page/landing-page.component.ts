@@ -11,7 +11,7 @@ import { TimerService } from '../../services/timer.service';
   styleUrl: './landing-page.component.scss'
 })
 export class LandingPageComponent {
-  timerService = inject(TimerService);
+  timerService = inject(TimerService); 
   router = inject(Router);
   timer$ = this.timerService.timer$;
   isBlankPage = this.timerService.isBlankPage;
