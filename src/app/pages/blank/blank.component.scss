@@ -3,14 +3,16 @@ section{
     gap: 2rem;
 
     button{
-        padding-block: .7rem;
         border: transparent;
         border-radius: .2rem;
         background-color: white;
         color: black;
         cursor: pointer;
-        background: linear-gradient(to right, rgba(144, 61, 221, 0.6), rgba(132, 36, 222, 0.314));
+        background: linear-gradient(270deg, rgb(95, 40, 128) 0%, rgb(143, 69, 202) 100%);
         color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        padding-block: 1rem;
     }
 
 }

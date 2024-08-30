@@ -6,7 +6,7 @@ import { BehaviorSubject, interval, map, Observable, Subscription, takeWhile } f
 })
 
 export class TimerService {
-  private countdownTime: number = 10; // Initial countdown time in seconds
+  private countdownTime: number = 10;
   private timerSubject: BehaviorSubject<number | string> = new BehaviorSubject<number | string>(this.countdownTime);
   private timerSubscription: Subscription | null = null;
   isBlankPage: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
