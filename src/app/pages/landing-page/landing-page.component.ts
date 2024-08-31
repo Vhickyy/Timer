@@ -21,9 +21,7 @@ export class LandingPageComponent {
   ngOnInit(): void {
     this.subscription.add(
       combineLatest([this.timer$, this.isBlankPage$]).subscribe(([time, isBlankPage]) => {
-        console.log('Debugging Timer:', { time, isBlankPage });
         if (time === '00' && !isBlankPage) {
-          console.log('Navigating to another page'); 
           this.router.navigate(['/another-page']);
         }
       })
