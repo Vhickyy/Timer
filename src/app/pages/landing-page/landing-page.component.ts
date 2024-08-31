@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { TimerComponent } from '../../components/timer/timer.component';
 import { Router, RouterLink } from '@angular/router';
 import { TimerService } from '../../services/timer.service';
+import { combineLatest, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-landing-page',
@@ -14,13 +15,23 @@ export class LandingPageComponent {
   timerService = inject(TimerService); 
   router = inject(Router);
   timer$ = this.timerService.timer$;
-  isBlankPage = this.timerService.isBlankPage;
+  isBlankPage$ = this.timerService.isBlankPage;
+  private subscription = new Subscription();
 
   ngOnInit(): void {
-    this.timer$.subscribe(time => {
-      this.isBlankPage.subscribe(val => {
-        if(time == '00' && !val) this.router.navigate(['/another-page']);
+    this.subscription.add(
+      combineLatest([this.timer$, this.isBlankPage$]).subscribe(([time, isBlankPage]) => {
+        console.log('Debugging Timer:', { time, isBlankPage });
+        if (time === '00' && !isBlankPage) {
+          console.log('Navigating to another page'); 
+          this.router.navigate(['/another-page']);
+        }
       })
-    })
-    }
+    );
+  }
+
+  ngOnDestroy () : void {
+    this.subscription.unsubscribe();
+  }
+    
 }
